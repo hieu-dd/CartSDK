@@ -1,6 +1,9 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    id( "org.jetbrains.kotlin.plugin.serialization").version("1.5.0-RC")
 }
 
 android {
@@ -17,6 +20,10 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
+        }
+        compileOptions {
+            sourceCompatibility(JavaVersion.VERSION_1_8)
+            targetCompatibility(JavaVersion.VERSION_1_8)
         }
     }
 
@@ -60,4 +67,13 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.2")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.3.0")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:${rootProject.extra["compose_version"]}")
+    implementation("com.google.dagger:hilt-android:2.33-beta")
+    kapt("com.google.dagger:hilt-compiler:2.33-beta")
+    implementation("io.ktor:ktor-client-okhttp:1.5.2")
+    implementation("io.ktor:ktor-client-serialization:1.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
+    implementation("io.ktor:ktor-client-logging:1.5.2")
+    implementation ("com.google.accompanist:accompanist-coil:0.7.1")
+    implementation( "androidx.constraintlayout:constraintlayout-compose:1.0.0-alpha03")
+
 }
