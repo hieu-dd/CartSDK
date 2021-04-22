@@ -3,12 +3,11 @@ package com.cafeinlove14h.cartwithcompose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -39,6 +38,7 @@ class MainActivity : ComponentActivity() {
     lateinit var client: HttpClient
 
 
+    @ExperimentalFoundationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -65,14 +65,31 @@ class MainActivity : ComponentActivity() {
 
             setContent {
                 CartWithComposeTheme {
-                    LazyColumn() {
-                        items(products) { product ->
-                            ProductItem(product = product)
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .background(Color.LightGray)
+                    ) {
+                        Text(
+                            text = "All Products",
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(bottom = 8.dp)
+                                .height(40.dp)
+                                .background(Color.White)
+                        )
+                        LazyVerticalGrid(
+                            cells = GridCells.Fixed(2)
+                        ) {
+                            items(products) { product ->
+                                ProductItem(product = product)
+                            }
                         }
                     }
                 }
             }
         }
+
     }
 }
 
@@ -81,6 +98,7 @@ fun ProductItem(product: Product) {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
+            .padding(4.dp)
             .background(Color.White)
             .padding(top = 12.dp)
     ) {
@@ -110,6 +128,7 @@ fun ProductItem(product: Product) {
         Text(text = product.productInfo.sku, modifier = Modifier.constrainAs(tvSku) {
             start.linkTo(tvName.start)
             top.linkTo(tvName.bottom)
+            width = Dimension.preferredWrapContent
         })
     }
 }
