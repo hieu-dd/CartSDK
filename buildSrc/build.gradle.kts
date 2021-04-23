@@ -10,7 +10,7 @@ repositories {
 }
 
 object PluginsVersions {
-    const val KOTLIN = "1.4.10"
+    const val KOTLIN = "1.4.31"
     const val GRADLE_SPRING_BOOT = "2.4.5"
     const val GRADLE_SPRING_DM = "1.0.11.RELEASE"
     const val GRADLE_ANDROID = "4.1.0"

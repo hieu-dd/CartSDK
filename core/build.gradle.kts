@@ -41,7 +41,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(project(":domain"))
-                implementation(Dependencies.Core.SQL_DELIGHT_COROUTINE)
+                implementation( "com.squareup.sqldelight:coroutines-extensions:1.4.4")
                 implementation(Dependencies.Core.SQL_DELIGHT)
                 implementation(Dependencies.Core.KODEIN_DI)
                 implementation(Dependencies.Core.KODEIN_CONFIGURABLE)
