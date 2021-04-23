@@ -1,6 +1,7 @@
 package com.cafeinlove14h.cartwithcompose.ui.screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -17,13 +18,14 @@ import com.cafeinlove14h.cartwithcompose.model.Product
 import com.google.accompanist.coil.CoilImage
 
 @Composable
-fun ProductItem(product: Product) {
+fun ProductItem(product: Product, onAddItem: (sku: String) -> Unit) {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
             .padding(4.dp)
             .background(Color.White)
             .padding(top = 12.dp)
+            .clickable { onAddItem(product.productInfo.sku) }
     ) {
         val (image, tvName, tvSku) = createRefs()
 

@@ -1,4 +1,4 @@
-package com.cafeinlove14h.cartwithcompose.model
+package com.cafeinlove14h.cartwithcompose.model.request
 
 import kotlinx.serialization.Serializable
 

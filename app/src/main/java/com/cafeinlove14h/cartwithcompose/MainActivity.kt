@@ -5,7 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.Column
 import com.cafeinlove14h.cartwithcompose.ui.screen.ProductListScreen
+import com.cafeinlove14h.cartwithcompose.ui.screen.cart.CartScreen
 import com.cafeinlove14h.cartwithcompose.ui.theme.CartWithComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 import io.ktor.client.*
@@ -24,7 +26,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CartWithComposeTheme {
-                ProductListScreen(mainViewModel)
+                Column() {
+                    CartScreen(mainViewModel)
+                    ProductListScreen(mainViewModel)
+                }
             }
         }
     }

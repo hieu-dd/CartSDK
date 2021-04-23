@@ -1,5 +1,6 @@
-package com.cafeinlove14h.cartwithcompose.model
+package com.cafeinlove14h.cartwithcompose.model.response
 
+import com.cafeinlove14h.cartwithcompose.model.Product
 import kotlinx.serialization.Serializable
 
 @Serializable
