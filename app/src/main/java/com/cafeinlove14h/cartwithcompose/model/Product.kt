@@ -1,4 +1,4 @@
-package vn.teko.cart.android.busmodels
+package com.cafeinlove14h.cartwithcompose.model
 
 import kotlinx.serialization.Serializable
 
