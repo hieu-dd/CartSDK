@@ -16,3 +16,4 @@ local.properties
 /docs/build
 /domain/build
 /core/build
+/buildSrc/build

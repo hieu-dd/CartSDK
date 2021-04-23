@@ -3,11 +3,12 @@ plugins {
     id( "org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
-    id(BuildPlugins.KOTLIN_PLUGIN_SERIALIZATION)
-
+    id( "org.jetbrains.kotlin.plugin.serialization").version("1.5.0-RC")
 }
 
 android {
+    kapt { generateStubs = true }
+
     compileSdkVersion(30)
 
     defaultConfig {
@@ -32,6 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
         useIR = true
+
     }
     buildFeatures {
         compose = true
@@ -60,4 +62,10 @@ dependencies {
     implementation ("com.google.accompanist:accompanist-coil:0.7.1")
     implementation( "androidx.constraintlayout:constraintlayout-compose:1.0.0-alpha03")
     implementation ("androidx.compose.compiler:compiler:1.0.0-beta05")
+    implementation ("androidx.activity:activity-compose:1.0.0-beta05")
+
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=org.mylibrary.OptInAnnotation"
 }

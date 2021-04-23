@@ -1,7 +1,7 @@
 
 plugins {
     id("org.jetbrains.kotlin.multiplatform")
-    id(BuildPlugins.KOTLIN_PLUGIN_SERIALIZATION)
+    id( "org.jetbrains.kotlin.plugin.serialization").version("1.5.0-RC")
 }
 
 kotlin {

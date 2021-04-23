@@ -1,12 +1,10 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
-import dependencies.Dependencies
-import dependencies.TestDependencies
 
 plugins {
     kotlin("multiplatform")
-    id(BuildPlugins.KOTLIN_PLUGIN_SERIALIZATION)
+    id("org.jetbrains.kotlin.plugin.serialization").version("1.5.0-RC")
     id("com.android.library")
-    id("com.squareup.sqldelight")
+    id("com.squareup.sqldelight").version("1.4.4")
 }
 
 android {
@@ -19,6 +17,16 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    configurations {
+        create("androidTestApi")
+        create("androidTestDebugApi")
+        create("androidTestReleaseApi")
+        create("testApi")
+        create("testDebugApi")
+        create("testReleaseApi")
+
     }
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -41,43 +49,38 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(project(":domain"))
-                implementation( "com.squareup.sqldelight:coroutines-extensions:1.4.4")
-                implementation(Dependencies.Core.SQL_DELIGHT)
-                implementation(Dependencies.Core.KODEIN_DI)
-                implementation(Dependencies.Core.KODEIN_CONFIGURABLE)
-                implementation(Dependencies.Core.KTOR_CLIENT)
-                implementation(Dependencies.Core.KTOR_CLIENT_JSON)
-                implementation(Dependencies.Core.KTOR_CLIENT_LOGGING)
-                implementation(Dependencies.Core.KTOR_CLIENT_SERIALIZATION)
+                implementation("com.squareup.sqldelight:coroutines-extensions:1.4.4")
+                implementation("com.squareup.sqldelight:runtime:1.4.4")
+                implementation("org.kodein.di:kodein-di:7.4.0")
+                implementation("org.kodein.di:kodein-di-conf:7.4.0")
+                implementation("io.ktor:ktor-client-core:1.5.2")
+                implementation("io.ktor:ktor-client-json:1.5.2")
+                implementation("io.ktor:ktor-client-logging:1.5.2")
+                implementation("io.ktor:ktor-client-serialization:1.5.2")
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
-                implementation(TestDependencies.Core.KTOR_CLIENT_MOCK)
             }
         }
         val androidMain by getting {
             dependencies {
-                implementation(Dependencies.Core.LOGGER)
-                implementation(Dependencies.Core.SQL_DELIGHT_ANDROID)
-                implementation(Dependencies.Core.KTOR_CLIENT_OKHTTP)
+                implementation("ch.qos.logback:logback-classic:1.2.3")
+                implementation("com.squareup.sqldelight:android-driver:1.4.4")
+                implementation("io.ktor:ktor-client-okhttp:1.5.2")
             }
         }
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
-                implementation(TestDependencies.Core.ANDROID_TEST_CORE)
-                implementation(TestDependencies.Core.ANDROID_TEST_EXT)
-                implementation(TestDependencies.Core.ROBOLECTRIC)
-                implementation(TestDependencies.Core.KOTLIN_COROUTINES_TEST)
             }
         }
         val iosMain by getting {
             dependencies {
-                implementation(Dependencies.Core.SQL_DELIGHT_IOS)
-                implementation(Dependencies.Core.KTOR_CLIENT_IOS)
+                implementation("com.squareup.sqldelight:native-driver:1.4.4")
+                implementation("io.ktor:ktor-client-ios:1.4.4")
             }
         }
         val iosTest by getting
@@ -95,7 +98,8 @@ val packForXcode by tasks.creating(Sync::class) {
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
     val sdkName = System.getenv("SDK_NAME") ?: "iphonesimulator"
     val targetName = "ios" + if (sdkName.startsWith("iphoneos")) "Arm64" else "X64"
-    val framework = kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
+    val framework =
+        kotlin.targets.getByName<KotlinNativeTarget>(targetName).binaries.getFramework(mode)
     inputs.property("mode", mode)
     dependsOn(framework.linkTask)
     val targetDir = File(buildDir, "xcode-frameworks")
