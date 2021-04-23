@@ -1,0 +1,22 @@
+DROP TABLE IF EXISTS `token`;
+
+CREATE TABLE `token` (
+  value TEXT NOT NULL PRIMARY KEY,
+  created_at INTEGER NOT NULL DEFAULT 0,
+  updated_at INTEGER NOT NULL DEFAULT 0
+);
+
+findAll:
+SELECT * FROM `token`;
+
+
+findById:
+SELECT * FROM `token` WHERE value = ?;
+
+insertOrReplaceIfExists {
+    DELETE FROM `token`;
+    INSERT INTO `token`(value) VALUES (?);
+}
+
+deleteAll:
+DELETE FROM `token`;

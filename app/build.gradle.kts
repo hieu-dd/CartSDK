@@ -1,40 +1,29 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    id( "org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
-    id( "org.jetbrains.kotlin.plugin.serialization").version("1.5.0-RC")
+    id(BuildPlugins.KOTLIN_PLUGIN_SERIALIZATION)
+
 }
 
 android {
-    compileSdk = 30
-    buildToolsVersion = "30.0.3"
+    compileSdkVersion(30)
 
     defaultConfig {
-        applicationId = "com.cafeinlove14h.cartwithcompose"
-        minSdk = 21
-        targetSdk = 30
-        versionCode = 1
-        versionName = "1.0"
+        minSdkVersion(21)
+        targetSdkVersion(30)
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled = true
+    }
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
-        compileOptions {
-            sourceCompatibility(JavaVersion.VERSION_1_8)
-            targetCompatibility(JavaVersion.VERSION_1_8)
-        }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -48,13 +37,11 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = rootProject.extra["compose_version"] as String
-        kotlinCompilerVersion = "1.4.32"
+        kotlinCompilerVersion = "1.4.10"
     }
 }
 
 dependencies {
-    implementation(project(":docs"))
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("com.google.android.material:material:1.3.0")
@@ -75,5 +62,5 @@ dependencies {
     implementation("io.ktor:ktor-client-logging:1.5.2")
     implementation ("com.google.accompanist:accompanist-coil:0.7.1")
     implementation( "androidx.constraintlayout:constraintlayout-compose:1.0.0-alpha03")
-
+    implementation ("androidx.compose.compiler:compiler:1.0.0-beta05")
 }
