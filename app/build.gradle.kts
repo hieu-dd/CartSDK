@@ -1,40 +1,30 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    id( "org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id( "org.jetbrains.kotlin.plugin.serialization").version("1.5.0-RC")
 }
 
 android {
-    compileSdk = 30
-    buildToolsVersion = "30.0.3"
+    kapt { generateStubs = true }
+
+    compileSdkVersion(30)
 
     defaultConfig {
-        applicationId = "com.cafeinlove14h.cartwithcompose"
-        minSdk = 21
-        targetSdk = 30
-        versionCode = 1
-        versionName = "1.0"
+        minSdkVersion(21)
+        targetSdkVersion(30)
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled = true
+    }
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
-        compileOptions {
-            sourceCompatibility(JavaVersion.VERSION_1_8)
-            targetCompatibility(JavaVersion.VERSION_1_8)
-        }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
     buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -43,18 +33,30 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
         useIR = true
+
     }
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = rootProject.extra["compose_version"] as String
-        kotlinCompilerVersion = "1.4.32"
+
+    packagingOptions {
+        exclude("META-INF/spring.tooling")
+        exclude("META-INF/NOTICE.md")
+        exclude("META-INF/spring.handlers")
+        exclude("META-INF/spring-configuration-metadata.json")
+        exclude("META-INF/additional-spring-configuration-metadata.json")
+        exclude("META-INF/spring.factories")
+        exclude("META-INF/spring.schemas")
+        exclude("META-INF/license.txt")
+        exclude("META-INF/notice.txt")
+        exclude("META-INF/LICENSE.md")
+        exclude("META-INF/AL2.0")
+        exclude("META-INF/LGPL2.1")
     }
 }
 
 dependencies {
-
+    implementation(project(":core"))
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("com.google.android.material:material:1.3.0")
@@ -75,5 +77,11 @@ dependencies {
     implementation("io.ktor:ktor-client-logging:1.5.2")
     implementation ("com.google.accompanist:accompanist-coil:0.7.1")
     implementation( "androidx.constraintlayout:constraintlayout-compose:1.0.0-alpha03")
+    implementation ("androidx.compose.compiler:compiler:1.0.0-beta05")
+    implementation ("androidx.activity:activity-compose:1.0.0-beta05")
 
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions.freeCompilerArgs += "-Xopt-in=org.mylibrary.OptInAnnotation"
 }

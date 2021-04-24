@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS config(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    baseUrl TEXT NOT NULL,
+    terminal TEXT NOT NULL,
+    channel TEXT NOT NULL,
+    tenant TEXT NOT NULL,
+    created_at INTEGER DEFAULT 0,
+    updated_at INTEGER DEFAULT 0
+);
