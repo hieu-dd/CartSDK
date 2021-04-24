@@ -38,9 +38,25 @@ android {
     buildFeatures {
         compose = true
     }
+
+    packagingOptions {
+        exclude("META-INF/spring.tooling")
+        exclude("META-INF/NOTICE.md")
+        exclude("META-INF/spring.handlers")
+        exclude("META-INF/spring-configuration-metadata.json")
+        exclude("META-INF/additional-spring-configuration-metadata.json")
+        exclude("META-INF/spring.factories")
+        exclude("META-INF/spring.schemas")
+        exclude("META-INF/license.txt")
+        exclude("META-INF/notice.txt")
+        exclude("META-INF/LICENSE.md")
+        exclude("META-INF/AL2.0")
+        exclude("META-INF/LGPL2.1")
+    }
 }
 
 dependencies {
+    implementation(project(":core"))
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("com.google.android.material:material:1.3.0")

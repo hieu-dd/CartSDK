@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="docs-jvm">
-    <output-path>C:\Users\thuan\StudioProjects\CartSDK\docs\build\libs</output-path>
+    <output-path>$PROJECT_DIR$/docs/build/libs</output-path>
     <root id="archive" name="docs-jvm.jar">
       <element id="module-output" name="CartWithCompose.docs.jvmMain" />
     </root>
