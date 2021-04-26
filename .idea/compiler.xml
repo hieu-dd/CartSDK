@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="11">
+      <module name="CartWithCompose.docs.commonMain" target="1.8" />
+      <module name="CartWithCompose.docs.commonTest" target="1.8" />
+      <module name="CartWithCompose.docs.jvmMain" target="1.8" />
+      <module name="CartWithCompose.docs.jvmTest" target="1.8" />
+      <module name="CartWithCompose.domain.commonMain" target="1.8" />
+      <module name="CartWithCompose.domain.commonTest" target="1.8" />
+      <module name="CartWithCompose.domain.jvmMain" target="1.8" />
+      <module name="CartWithCompose.domain.jvmTest" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
