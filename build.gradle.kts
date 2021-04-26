@@ -3,7 +3,39 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+
+        // All packages from Terra Platform
+        maven {
+            name = "TekoGitlabPackages"
+            url = project.uri("https://git.teko.vn/api/v4/groups/924/-/packages/maven")
+
+            credentials(HttpHeaderCredentials::class.java) {
+                val privateToken = "hcmDJjULKfVA9jvaTFpH"
+                name = "Private-Token"
+                value = privateToken
+            }
+            authentication {
+                create("header", HttpHeaderAuthentication::class.java)
+            }
+        }
+
+        maven {
+            name = "TekoGitlabPackages"
+            url = project.uri("https://git.teko.vn/api/v4/projects/1745/packages/maven")
+
+            credentials(HttpHeaderCredentials::class.java) {
+                val privateToken = "hcmDJjULKfVA9jvaTFpH"
+                name = "Private-Token"
+                value = privateToken
+            }
+            authentication {
+                create("header", HttpHeaderAuthentication::class.java)
+            }
+        }
+
+
     }
+
 }
 buildscript {
     val compose_version by extra("1.0.0-beta05")
