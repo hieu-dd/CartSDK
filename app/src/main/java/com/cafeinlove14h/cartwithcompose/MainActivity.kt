@@ -1,35 +1,26 @@
 package com.cafeinlove14h.cartwithcompose
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.viewModels
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Column
-import com.cafeinlove14h.cartwithcompose.ui.screen.ProductListScreen
-import com.cafeinlove14h.cartwithcompose.ui.screen.cart.CartScreen
-import com.cafeinlove14h.cartwithcompose.ui.theme.CartWithComposeTheme
+import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.createGraph
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.fragment
+import com.cafeinlove14h.cartcompose.screen.cart.CartFragment
+import com.cafeinlove14h.cartwithcompose.ui.screen.productlist.ProductListFragment
 import dagger.hilt.android.AndroidEntryPoint
-import io.ktor.client.*
-import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var client: HttpClient
-
-    private val mainViewModel: MainViewModel by viewModels()
-
-    @ExperimentalFoundationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            CartWithComposeTheme {
-                Column() {
-                    CartScreen(mainViewModel)
-                    ProductListScreen(mainViewModel)
-                }
+        setContentView(R.layout.activity_main)
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+        navHostFragment.navController.apply {
+            graph = createGraph(NavGraph.NAV_ID, NavGraph.Dest.PRODUCT_LIST_FRAGMENT_ID) {
+                fragment<ProductListFragment>(NavGraph.Dest.PRODUCT_LIST_FRAGMENT_ID).apply { }
+                fragment<CartFragment>(NavGraph.Dest.CART_FRAGMENT_ID)
             }
         }
     }

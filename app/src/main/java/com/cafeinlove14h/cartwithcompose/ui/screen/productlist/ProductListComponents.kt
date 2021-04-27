@@ -1,4 +1,4 @@
-package com.cafeinlove14h.cartwithcompose.ui.screen
+package com.cafeinlove14h.cartwithcompose.ui.screen.productlist
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
