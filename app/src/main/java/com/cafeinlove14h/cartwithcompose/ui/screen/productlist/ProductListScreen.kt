@@ -1,4 +1,4 @@
-package com.cafeinlove14h.cartwithcompose.ui.screen
+package com.cafeinlove14h.cartwithcompose.ui.screen.productlist
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -13,13 +13,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.cafeinlove14h.cartwithcompose.MainViewModel
 import com.cafeinlove14h.cartwithcompose.model.Product
 
 @ExperimentalFoundationApi
 @Composable
-fun ProductListScreen(mainViewModel: MainViewModel) {
-    val products: List<Product> by mainViewModel.products.collectAsState()
+fun ProductListScreen(viewModel: ProductListViewModel) {
+    val products: List<Product> by viewModel.products.collectAsState()
 
     Column(
         modifier = Modifier
@@ -39,7 +38,7 @@ fun ProductListScreen(mainViewModel: MainViewModel) {
         ) {
             items(products) { product ->
                 ProductItem(product = product) {
-                    mainViewModel.addItem(it)
+                    viewModel.addItem(it)
                 }
             }
         }

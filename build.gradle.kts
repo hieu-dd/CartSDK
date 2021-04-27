@@ -32,19 +32,13 @@ allprojects {
                 create("header", HttpHeaderAuthentication::class.java)
             }
         }
-
-
     }
-
 }
 buildscript {
     val compose_version by extra("1.0.0-beta05")
     repositories {
         google()
         mavenCentral()
-//        maven {
-//            url = java.net.URI.create("https://maven.google.com")
-//        }
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.0-alpha14")
