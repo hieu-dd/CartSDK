@@ -17,3 +17,4 @@ local.properties
 /domain/build
 /core/build
 /buildSrc/build
+/.idea
