@@ -1,0 +1,25 @@
+{
+  "terraClientID": "cart:android:playstore:0.0.1",
+  "terraEnvironment": "dev",
+  "defaultConfig": {
+    "@type": "type.googleapis.com/terra.v1.Pandora",
+    "config": "OT9B3rt/mXNbP7aMSMyN1TBPTOrh8ixlrbK7Ozk8GWx+1OBWrTZXuGL6Lt6BctuNf2Kqr5UOgY9z+uSojh0ZP/JX8cwLqi/zz3nUJdHbtQ==",
+    "services": [
+      {
+        "name": "Discovery",
+        "code": "discovery",
+        "config": "5ybrEfTUaOrtJCyznggvU28QSz8cyG1Z1IXx8TBYwpd0JCcKHfLSA3Z++mCnDjUpDVKkxPXo6wq6HnCY14nVY6XKXSs1uSgoOF05yqZeAeBAvhDvz+0a6EQUg2WMtreYHZm29EkSvwjbcVOXBPwniBU6kdbYl20wO0zoqZrdiPiGbfVZTkhPqaZJZi9L6n74gtgeL0/QNxOlQU/6Bn9HxS0t4BDpQdobtz/XKAYVGQ=="
+      },
+      {
+        "name": "Cart",
+        "code": "cart",
+        "config": "BLlwJ4h/SDJ+3sXIVnDYapNkmwGm2FFWx3jQSnT/vMflS9fMZsRH6XufGb0yMxgYjHFcxwOjvtO4PBP6yZD43G9mQ2hFoyFFxuWutyEpwuQpIKZLnVquUskONw9V9xWwB3eppa+c9Kk9pfri2MeHJOzLxru/JvvOwsPZfUeFP7b91kf9AkNJp8cOAJAKc3Zyok4w50dP"
+      },
+      {
+        "name": "Apollo",
+        "code": "apollo",
+        "config": "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"
+      }
+    ]
+  }
+}

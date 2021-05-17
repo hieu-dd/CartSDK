@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.createGraph
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.fragment
-import com.cafeinlove14h.cartcompose.screen.cart.CartFragment
+import com.cafeinlove14h.cartcompose.screen.cart.CartContainerFragment
 import com.cafeinlove14h.cartwithcompose.ui.screen.productlist.ProductListFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         navHostFragment.navController.apply {
             graph = createGraph(NavGraph.NAV_ID, NavGraph.Dest.PRODUCT_LIST_FRAGMENT_ID) {
                 fragment<ProductListFragment>(NavGraph.Dest.PRODUCT_LIST_FRAGMENT_ID).apply { }
-                fragment<CartFragment>(NavGraph.Dest.CART_FRAGMENT_ID)
+                fragment<CartContainerFragment>(NavGraph.Dest.CART_FRAGMENT_ID)
             }
         }
     }

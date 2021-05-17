@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cart_max_decimal_quantity" translatable="false">9999999999.9999</string>
+
+    <string name="cart_ui_cart">Cart</string>
+    <string name="cart_ui_confirmation_title">Checkout</string>
+
+    <string name="cart_common_delete">Delete</string>
+    <string name="cart_common_cancel">Cancel</string>
+    <string name="cart_common_notification">Notification</string>
+    <string name="cart_common_close">Close</string>
+    <string name="cart_common_free">Free</string>
+    <string name="cart_not_charged">Not charged</string>
+
+    <string name="cart_ui_confirmation_common_quantity">x%d</string>
+
+    <string name="cart_common_error_occur">An error occurred while processing your request!</string>
+    <string name="cart_common_error_occur_popup">An error occurred while processing your request. Please try again later!</string>
+
+    <string name="cart_ui_notification_no_item_selected">Please select items to continue</string>
+
+    <string name="cart_ui_product_sku">SKU: %s</string>
+    <string name="cart_ui_stock_warning">Last %d remaining items</string>
+    <string name="cart_ui_no_items_in_cart">No items in cart</string>
+    <string name="cart_ui_buy_now">Buy now</string>
+    <string name="cart_ui_touch_to_select">Click here</string>
+    <string name="cart_ui_apply">Apply</string>
+    <string name="cart_ui_discount_code">Discount code</string>
+    <string name="cart_ui_discount_text">Coupon code</string>
+    <string name="cart_ui_out_of_stock">Out of stock</string>
+    <string name="cart_ui_available_for_sale">"Available: "</string>
+    <string name="cart_ui_item_discount_flat">Direct discount %s </string>
+    <string name="cart_ui_item_discount_percent_without_max_amount">Discount %s</string>
+    <string name="cart_ui_item_discount_percent">%s discount up to %s</string>
+    <string name="cart_ui_item_voucher">%dx Discount code for the next order</string>
+    <string name="cart_ui_item_gift">%dx %s</string>
+    <string name="cart_ui_line_item_discount_percent">-%d %%</string>
+    <string name="cart_ui_continue_button">Continue</string>
+    <string name="cart_ui_loyalty_point">+%s Dino</string>
+    <string name="cart_ui_cart_promotion_discount">Discount %s</string>
+    <string name="cart_ui_cart_promotion_voucher">Discount code for the next order</string>
+    <string name="cart_ui_cart_promotion_gift">Free %s</string>
+    <string name="cart_ui_promotions_title">Promotions</string>
+    <string name="cart_ui_coupon_promotions_title">Discount Code</string>
+
+    <string name="cart_ui_coupon_promotions_invalid">Invalid code. Please try again!</string>
+    <string name="cart_ui_promotion_invalid_grand_total">The order value is not satisfied with conditions for applying the code</string>
+    <string name="cart_ui_common_internal_server_error">An error occurred while processing your request</string>
+    <string name="cart_ui_promotion_coupon_invalid_or_has_been_used">The code was used or the number of uses for the code are over</string>
+    <string name="cart_ui_promotion_coupon_invalid">The code is invalid</string>
+    <string name="cart_ui_promotion_out_of_budget">The code is out of budget</string>
+    <string name="cart_ui_promotion_exceed_max_usage_per_user">You have used the code more than the allowed number of times</string>
+    <string name="cart_ui_promotion_user_need_login">Please login to apply the code</string>
+    <string name="cart_ui_promotion_coupon_out_of_stock">The number of uses for the code are over</string>
+    <string name="cart_ui_promotion_invalid_sku">There are products in the cart that make the code inapplicable</string>
+    <string name="cart_ui_promotion_invalid_user">The code can not be applied for your account</string>
+    <string name="cart_ui_promotion_error">The code is invalid</string>
+
+    <string name="cart_ui_confirm_voucher_out_of_budget">There are promotions that have voucher is out of budget.</string>
+    <string name="cart_ui_confirm_budget_out_of_budget">The promotions are out of budget.</string>
+    <string name="cart_ui_confirm_coupon_used_or_out_of_budget">The discount code was used or the number of uses for the code are over.</string>
+    <string name="cart_ui_confirm_order_promotion_invalid_price">The price of products in the cart are updated, please check and try again!</string>
+    <string name="cart_ui_confirm_order_promotion_exceed_max_usage_per_user">You have used the code more than the allowed number of times.</string>
+    <string name="cart_ui_confirm_order_promotion_promotion_inactive">There is a disabled promotion in the cart.</string>
+    <string name="cart_ui_confirm_order_promotion_invalid_promotion_sku">There is a product that can not be applied the promotion in the cart.</string>
+    <string name="cart_ui_confirm_order_promotion_invalid_promotion_coupon_user">You are not on the customer list that can be received a promotion in the cart.</string>
+    <string name="cart_ui_confirm_order_promotion_coupon_expired">The discount code is expired.</string>
+    <string name="cart_ui_confirm_flash_sale_inactive">There is flash sale in the cart that is disabled.</string>
+    <string name="cart_ui_confirm_flash_sale_out_of_stock">There is a flash sale in the cart that has the numbers of uses over.</string>
+
+    <string name="cart_ui_benefit_discount_description">Direct discount %s</string>
+    <string name="cart_ui_benefit_voucher_description">Discount code for the next order</string>
+    <string name="cart_ui_benefit_gift_description">%dx %s</string>
+    <string name="cart_ui_delete_item_title">Delete item</string>
+    <string name="cart_ui_delete_item_content">Do you really want to delete this item?</string>
+    <string name="cart_ui_note_hint">Note something here…</string>
+
+    <string name="cart_ui_confirmation_products_title">Products</string>
+    <string name="cart_ui_confirmation_order_promotions_title">Order Gifts</string>
+
+    <string name="cart_ui_confirmation_quotation_subtotal">Seller subtotal</string>
+    <string name="cart_ui_confirmation_quotation_shipping_fee">Shipping fee</string>
+    <string name="cart_ui_confirmation_quotation_total_discount">Total discount</string>
+    <string name="cart_ui_confirmation_quotation_grand_total">Order amount</string>
+    <string name="cart_ui_confirmation_quotation_including_vat">(Including VAT)</string>
+
+    <string name="cart_ui_confirmation_customer_title">Customer Information</string>
+    <string name="cart_ui_confirmation_shipping_info_title">Delivery Address</string>
+    <string name="cart_ui_confirmation_add_shipping_info">Add shipping address</string>
+    <string name="cart_ui_delivery_option">Shipping Option</string>
+    <string name="cart_ui_choose_delivery_option">Choose a shipping option</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/apollo_ic_homepage_fill_24"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/navigation_cart"
+        android:icon="@drawable/apollo_ic_cart_fill_24"
+        android:title="Cart" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/apollo_ic_profile_fill_24"
+        android:title="Profile" />
+
+    <item
+        android:id="@+id/navigation_setting"
+        android:icon="@drawable/apollo_ic_setting_24"
+        android:title="Setting" />
+
+</menu>

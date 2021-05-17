@@ -1,9 +1,9 @@
 plugins {
     id("com.android.application")
-    id( "org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
-    id( "org.jetbrains.kotlin.plugin.serialization").version("1.5.0-RC")
+    id("org.jetbrains.kotlin.plugin.serialization").version("1.5.0-RC")
 }
 
 android {
@@ -23,9 +23,6 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-    buildTypes {
-
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

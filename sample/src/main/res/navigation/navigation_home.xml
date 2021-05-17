@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    app:startDestination="@id/productListFragment">
+    <fragment
+        android:id="@+id/cartContainerFragment"
+        android:name="com.cafeinlove14h.cartcompose.screen.cart.CartContainerFragment"
+        android:label="CartContainerFragment">
+        <action
+            android:id="@+id/action_cartContainerFragment_to_customerFragment"
+            app:destination="@id/customerFragment" />
+        <action
+            android:id="@+id/action_cartContainerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="vn.teko.cart.android.ProductListFragment"
+        android:label="ProductListFragment">
+        <action
+            android:id="@+id/action_productListFragment_to_cartContainerFragment"
+            app:destination="@id/cartContainerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerFragment"
+        android:name="vn.teko.cart.android.CustomerFragment"
+        android:label="CustomerFragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="vn.teko.cart.android.LoginFragment"
+        android:label="LoginFragment" />
+</navigation>

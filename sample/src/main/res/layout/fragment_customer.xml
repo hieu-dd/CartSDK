@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <vn.teko.apollo.component.common.ApolloEditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Do Duc Hieu"
+            android:text="Do Duc Hieu" />
+
+
+        <CheckBox
+            android:id="@+id/retail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retail" />
+
+        <CheckBox
+            android:id="@+id/company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Company" />
+
+        <CheckBox
+            android:id="@+id/shipping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Has Shipping" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <vn.teko.apollo.component.button.ApolloButton
+            android:id="@+id/btnOk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ok"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </LinearLayout>
+</layout>

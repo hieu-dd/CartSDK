@@ -18,3 +18,5 @@ local.properties
 /core/build
 /buildSrc/build
 /.idea
+/sample/build
+.idea

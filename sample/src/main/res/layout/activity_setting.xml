@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/ApolloBody1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorBackground"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:text="Terminal" />
+
+        <RadioGroup
+            android:id="@+id/grTerminal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp">
+
+            <RadioButton
+                android:id="@+id/tmPv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PhongVu" />
+
+            <RadioButton
+                android:id="@+id/tmVnshop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vnshop" />
+
+            <RadioButton
+                android:id="@+id/tmVnshopApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VnshopApp" />
+
+            <RadioButton
+                android:id="@+id/tmSoiBien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sói Biển" />
+        </RadioGroup>
+
+        <TextView
+            style="@style/ApolloBody1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorBackground"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:text="Seller" />
+
+        <RadioGroup
+            android:id="@+id/grSeller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp">
+
+            <RadioButton
+                android:id="@+id/slPv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PhongVu" />
+
+            <RadioButton
+                android:id="@+id/slVnshop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vnshop" />
+        </RadioGroup>
+
+        <TextView
+            style="@style/ApolloBody1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorBackground"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:text="Channel Type" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tvChannelType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            style="@style/ApolloBody1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorBackground"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            android:text="Channel Id" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tvChannelId"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+        />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/goToHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            android:text="Start" />
+    </LinearLayout>
+</layout>
