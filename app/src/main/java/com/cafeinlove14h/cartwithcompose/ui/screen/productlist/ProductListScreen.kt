@@ -37,9 +37,7 @@ fun ProductListScreen(viewModel: ProductListViewModel) {
             cells = GridCells.Fixed(2)
         ) {
             items(products) { product ->
-                ProductItem(product = product) {
-                    viewModel.addItem(it)
-                }
+                ProductListItem(product = product)
             }
         }
     }
