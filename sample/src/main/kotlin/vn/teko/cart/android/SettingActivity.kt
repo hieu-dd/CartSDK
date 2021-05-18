@@ -13,6 +13,7 @@ class SettingActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
+        startActivity(Intent(this, MainActivity::class.java))
         findViewById<RadioGroup>(R.id.grTerminal).setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.tmPv -> {
