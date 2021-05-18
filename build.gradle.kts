@@ -38,7 +38,7 @@ allprojects {
     }
 }
 buildscript {
-    val compose_version by extra("1.0.0-beta05")
+     val compose_version by extra("1.0.0-beta05")
     repositories {
         google()
         mavenCentral()

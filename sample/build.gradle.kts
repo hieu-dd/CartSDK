@@ -10,6 +10,7 @@ android {
     compileSdkVersion(30)
 
     defaultConfig {
+        applicationId ="vn.teko.cart.compose"
         minSdkVersion(21)
         targetSdkVersion(30)
         vectorDrawables.useSupportLibrary = true
