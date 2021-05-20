@@ -45,6 +45,9 @@ dependencies {
     implementation("vn.teko.cart:cart-bus:9211184b") {
         exclude("org.springdoc")
     }
+    // Terra Apollo
+    implementation("vn.teko.apollo:terra-apollo:1.6.0")
+
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("com.google.android.material:material:1.3.0")

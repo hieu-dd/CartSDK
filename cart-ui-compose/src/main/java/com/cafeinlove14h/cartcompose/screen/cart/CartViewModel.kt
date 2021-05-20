@@ -1,7 +1,5 @@
 package com.cafeinlove14h.cartcompose.screen.cart
 
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cafeinlove14h.cartcompose.state.UiState
@@ -28,14 +26,20 @@ internal constructor(private val cartBus: CartBus) : ViewModel() {
                 is DataState.Error -> cartFlow.value =
                     cartFlow.value.copy(loading = false, exception = Exception())
                 is DataState.Success -> cartFlow.value =
-                    cartFlow.value.copy(loading = true, exception = null, data = it.data)
+                    cartFlow.value.copy(loading = false, exception = null, data = it.data)
             }
         }.launchIn(viewModelScope)
     }
 
-    fun updateItem(lineItemId: String, quantity: Int) {
+    fun updateItem(lineItemId: String, quantity: Int?, selected: Boolean? = null) {
         viewModelScope.launch {
-            cartBus.updateItem(lineItemId, quantity, true)
+            cartBus.updateItem(lineItemId, quantity, selected)
+        }
+    }
+
+    fun updateSeller(sellerId: Int, selected: Boolean) {
+        viewModelScope.launch {
+            cartBus.updateItemsBySeller(sellerId, selected)
         }
     }
 }

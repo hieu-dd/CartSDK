@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun Header(title: String) {
+fun Header(title: String, leftClick: () -> Unit = {}) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -36,7 +36,7 @@ fun Header(title: String) {
             modifier = Modifier
                 .size(24.dp)
                 .clickable {
-
+                    leftClick()
                 }
         )
         Text(
