@@ -1,23 +1,27 @@
 package com.cafeinlove14h.cartcompose.screen.cart
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.cafeinlove14h.cartcompose.state.UiState
-import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
+import org.kodein.di.DIAware
+import org.kodein.di.android.x.closestDI
+import org.kodein.di.instance
 import vn.teko.cart.android.bus.CartBus
 import vn.teko.cart.core.infrastructure.cart.data.DataState
 import vn.teko.cart.domain.model.CartEntity
-import java.lang.Exception
-import javax.inject.Inject
 
-@HiltViewModel
-class CartViewModel
-@Inject
-internal constructor(private val cartBus: CartBus) : ViewModel() {
+class CartViewModel(app: Application) : AndroidViewModel(app), DIAware {
+    override val di by closestDI()
+
     val cartFlow: MutableStateFlow<UiState<CartEntity>> =
         MutableStateFlow(UiState(false, null, null))
+
+    val cartBus: CartBus by instance()
 
     init {
         cartBus.getCartFlow().onEach {

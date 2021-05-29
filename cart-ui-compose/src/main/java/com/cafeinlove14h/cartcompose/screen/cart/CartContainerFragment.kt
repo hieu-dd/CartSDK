@@ -13,16 +13,15 @@ import androidx.navigation.compose.rememberNavController
 import com.cafeinlove14h.cartcompose.CartSdk
 import com.cafeinlove14h.cartcompose.R
 import com.cafeinlove14h.cartcompose.theme.CartTheme
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import org.kodein.di.DIAware
+import org.kodein.di.android.x.closestDI
+import org.kodein.di.compose.withDI
+import org.kodein.di.instance
 
 
-@AndroidEntryPoint
-class CartContainerFragment : Fragment() {
-
-    @Inject
-    lateinit var cartSdk: CartSdk
-
+class CartContainerFragment : Fragment(), DIAware {
+    override val di by closestDI()
+    private val cartSdk: CartSdk by instance()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,19 +34,21 @@ class CartContainerFragment : Fragment() {
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
             setContent {
-                CartTheme {
-                    val navController = rememberNavController()
-                    NavHost(
-                        navController = navController,
-                        startDestination = "cart_screen"
-                    ) {
-                        composable("cart_screen") {
-                            CartScreen(
-                                navController = navController,
-                                onBack = { cartSdk.getNavigationDelegate()?.backFromCart() })
-                        }
-                        composable("confirmation_screen") {
-                            ConfirmationScreen(navController = navController)
+                withDI {
+                    CartTheme {
+                        val navController = rememberNavController()
+                        NavHost(
+                            navController = navController,
+                            startDestination = "cart_screen"
+                        ) {
+                            composable("cart_screen") {
+                                CartScreen(
+                                    navController = navController,
+                                    onBack = { cartSdk.getNavigationDelegate()?.backFromCart() })
+                            }
+                            composable("confirmation_screen") {
+                                ConfirmationScreen(navController = navController)
+                            }
                         }
                     }
                 }

@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), AppIdentifier {
 
     private fun initNavigation() {
         AppNavigator.setActivity(this)
-        AppNavigator.registerSdkNavigation()
+//        AppNavigator.registerSdkNavigation()
     }
 
     override val appIdentifier: String

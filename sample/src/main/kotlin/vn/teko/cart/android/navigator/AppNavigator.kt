@@ -7,11 +7,11 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.cafeinlove14h.cartcompose.CartNavigationDelegate
 import com.cafeinlove14h.cartcompose.CartSdk
+import com.cafeinlove14h.cartcompose.extensions.getAppName
 import vn.teko.cart.android.AppTestBus
 import vn.teko.cart.android.LocalData
 import vn.teko.cart.android.R
 import vn.teko.cart.android.bus.model.request.PaymentRequest
-import com.cafeinlove14h.cartcompose.extensions.getAppName
 import vn.teko.terra.core.android.terra.TerraApp
 
 @SuppressLint("StaticFieldLeak")

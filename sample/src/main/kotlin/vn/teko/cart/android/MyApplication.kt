@@ -2,13 +2,22 @@ package vn.teko.cart.android
 
 import android.app.Application
 import android.content.Context
+import com.cafeinlove14h.cartcompose.di.cartModule
+import org.kodein.di.DI
+import org.kodein.di.DIAware
+import org.kodein.di.android.x.androidXModule
 import vn.teko.apollo.ApolloTheme
 import vn.teko.apollo.config.toApolloConfiguration
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.io.Reader
 
-class MyApplication : Application() {
+class MyApplication : Application(), DIAware {
+
+    override val di by DI.lazy {
+        import(androidXModule(this@MyApplication))
+        import(cartModule)
+    }
 
     companion object {
         const val APP_NAME = "Test CartSDK"

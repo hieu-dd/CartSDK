@@ -40,7 +40,7 @@ class CartSdk private constructor(
         }
 
         @JvmStatic
-        internal fun getInstance(terraApp: TerraApp): CartSdk =
+         fun getInstance(terraApp: TerraApp): CartSdk =
             cartSdkMap[terraApp.appName] ?: throw Throwable("CartSdk has not been initialized")
     }
 }

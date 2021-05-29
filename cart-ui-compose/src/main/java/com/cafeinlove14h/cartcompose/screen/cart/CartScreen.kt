@@ -8,34 +8,32 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import androidx.hilt.navigation.compose.hiltNavGraphViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.cafeinlove14h.cartcompose.CartSdk
 import com.cafeinlove14h.cartcompose.extensions.getNeutralColor
 import com.cafeinlove14h.cartcompose.extensions.getPrimaryColor
 import com.cafeinlove14h.cartcompose.extensions.toColor
-import com.cafeinlove14h.cartcompose.screen.cart.components.*
-import vn.teko.cart.core.infrastructure.cart.data.DataState
+import com.cafeinlove14h.cartcompose.screen.cart.components.CartFooter
+import com.cafeinlove14h.cartcompose.screen.cart.components.CartLineItemView
+import com.cafeinlove14h.cartcompose.screen.cart.components.CartSellerItemView
+import com.cafeinlove14h.cartcompose.screen.cart.components.Header
+import org.kodein.di.compose.instance
 import vn.teko.cart.domain.model.CartEntity
-import javax.inject.Inject
 
 @Composable
 fun CartScreen(
     navController: NavController,
     onBack: () -> Unit = {},
-    viewModel: CartViewModel = hiltNavGraphViewModel()
 ) {
-
+    val viewModel: CartViewModel by instance()
     val context = LocalContext.current
     val cartDataState by viewModel.cartFlow.collectAsState()
     Scaffold(
@@ -69,7 +67,8 @@ fun CartScreen(
 }
 
 @Composable
-fun CartList(cart: CartEntity, viewModel: CartViewModel = hiltNavGraphViewModel()) {
+fun CartList(cart: CartEntity) {
+    val viewModel: CartViewModel by instance()
     val sellerIds =
         cart.items.distinctBy { it.sellerId }.mapNotNull { it.product?.productInfo?.seller }
 
